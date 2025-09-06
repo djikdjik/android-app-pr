@@ -1,0 +1,24 @@
+const CACHE_NAME = 'pdf-reader-cache-v1';
+// We only cache the core app files. The PDF.js library will be fetched from the network.
+const urlsToCache = [
+    '/',
+    '/index.html',
+    '/app.js'
+];
+
+self.addEventListener('install', event => {
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(cache => {
+            console.log('Opened cache');
+            return cache.addAll(urlsToCache);
+        })
+    );
+});
+
+self.addEventListener('fetch', event => {
+    event.respondWith(
+        caches.match(event.request).then(response => {
+            return response || fetch(event.request);
+        })
+    );
+});

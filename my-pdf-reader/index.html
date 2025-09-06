@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4285f4"/>
+    <title>Web PDF Reader</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        #pdf-viewer-container canvas { border: 1px solid #ccc; margin-bottom: 1em; }
+        input[type="file"] { margin-bottom: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Offline PDF Reader</h1>
+    <p>Select a PDF file from your device to view it. This app works even when you are offline.</p>
+    <input type="file" id="pdf-file-input" accept=".pdf" />
+    <div id="pdf-viewer-container"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
